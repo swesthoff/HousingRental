@@ -1,14 +1,15 @@
 package edu.dmacc.spring.housingrental;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
-
 @Controller
 public class HousingController {
-
+	@Autowired UnitDao dao;
+	
 	private static final String[] unitTypes = {"Single Family","Duplex","Townhouse","Apartment"};
 	
 	private static final String[] states = {"Alabama" ,"Alaska","Arizona","Arkansas" ,"California" ,"Colorado" 
@@ -50,5 +51,19 @@ public class HousingController {
 		return modelAndView;
 }
 	
+	@RequestMapping(value = "/result")
+	public ModelAndView processUnit(Unit unit) { 
+		ModelAndView modelAndView = new ModelAndView();
+		dao.insertUnit(unit); 
+		modelAndView.setViewName("unitResult"); 
+		modelAndView.addObject("u", unit); 
+		return modelAndView;
+}
+	
+	@Bean
+		public UnitDao dao() {
+			UnitDao bean = new UnitDao();
+			return bean;
+	}
 	
 }
