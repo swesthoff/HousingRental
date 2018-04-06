@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @Controller
-public class UnitController {
+public class HousingController {
 
 	private static final String[] unitTypes = {"Single Family","Duplex","Townhouse","Apartment"};
 	
@@ -30,6 +30,25 @@ public class UnitController {
 			
 			return modelAndView;
 	}
+	
+	@RequestMapping(value="/renterform")
+	public ModelAndView renter1() {
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.setViewName("renterform1");
+	
+		return modelAndView;
+}
+	
+	@RequestMapping(value="/menu")
+	public ModelAndView main() {
+		ModelAndView modelAndView = new ModelAndView();
+		
+		modelAndView.setViewName("mainMenu");
+
+		
+		return modelAndView;
+}
 	
 	
 }
