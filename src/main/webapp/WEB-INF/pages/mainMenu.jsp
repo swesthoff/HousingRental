@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href = "form.mvc">Add Housing Unit</a>
-<a href = "renterform.mvc">Add Renter</a>
-<a href = "viewAllUnits.mvc">View all Units</a>
-<a href = "viewAllRenters.mvc">View all Renters</a>
+<a href = "form.mvc">Add Housing Unit</a><br />
+<a href = "renterform.mvc">Add Renter</a><br />
+<a href = "viewAllUnits.mvc">View all Units</a><br />
+<a href = "viewAllRenters.mvc">View all Renters</a><br />
 </html>

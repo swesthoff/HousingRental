@@ -7,60 +7,64 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>All Entries</title>
+<title>All Units</title>
+<style>
+table, td, th {
+	border: 1px solid black;
+	border-collapse: separate;
+	border-spacing: 2px;
+	padding: 2px;
+}
+</style>
 </head>
 <body>
+<table>
+<tr>
+			<th>Unit Id</th>
+			<th>Unit Type</th>
+			<th>Cost</th>
+			<th>Deposit Amount</th>
+			<th>Number of Bedrooms</th>
+			<th>Number of Bathrooms</th>
+			<th>Square Footage</th>
+			<th>Address</th> 
+			<th>City</th> 
+			<th>State</th> 
+			<th>Zip</th> 
+			
+			
+		</tr>
 	<c:forEach items="${all}" var="item">
-		<table>
-			<tr>
-				<td>Unit Type</td>U
+		
+			<tr> 
+			<td><input type="radio" name="unitId" value="${item.unitId}"></td>
 				<td>${item.unitType}</td>
-			</tr>
-			<tr>
-				<td>Cost</td>
+			 
 				<td>${item.cost}</td>
-			</tr>
-			<tr>
-				<td>Depost Amount</td>
+			 
 				<td>${item.depositAmount}</td>
-			</tr>
-			<tr>
-				<td>Number of Bedrooms</td>
+			 
+				 
 				<td>${item.nmbrBedrooms}</td>
-			</tr>
-			<tr>
-				<td>Number of Bathrooms</td>
+			 
 				<td>${item.nmbrBathrooms}</td>
-			</tr>
-			<tr>
-				<td>Square Footage</td>
+			 
 				<td>${item.squareFootage}</td>
-			</tr>
-			<tr>
-				<td>Address</td>
+			 
 				<td>${item.address}</td>
-			</tr>
-			</tr>
-			<tr>
-				<td>City</td>
+		 
+			 
 				<td>${item.city}</td>
-			</tr>
-			</tr>
-			<tr>
-				<td>State</td>
+			 
 				<td>${item.state}</td>
-			</tr>
-			</tr>
-			<tr>
-				<td>Zip</td>
+			 
 				<td>${item.zip}</td>
 			</tr>
-		</table>
-		<br />
-		<hr style="text-align: left; margin-left: 0; width: 25%">
-		<br />
+		
+		 
 	</c:forEach>
-	<a href="form.mvc">Add a new unit</a>
-	<a href = "menu.mvc">Back to main menu</a>
+	</table>
+	<a href="form.mvc">Add a new unit</a><br />
+	<a href = "menu.mvc">Back to main menu</a><br />
 </body>
 </html>

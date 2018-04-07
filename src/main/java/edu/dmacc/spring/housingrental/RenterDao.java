@@ -7,6 +7,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+import org.springframework.web.servlet.ModelAndView;
+
+
 public class RenterDao {
 EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("HousingRental");
 	
@@ -26,6 +29,32 @@ EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Housing
 		em.persist(renterToAdd);
 		em.getTransaction().commit();
 		em.close();
+	}
+
+	public void deleteRenter(Renter rentertoDelete) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Renter> typedQuery = em.createQuery(
+				"select li from Renter li where li.renterId = :selectedId",
+				Renter.class);
+		typedQuery.setParameter("selectedId", rentertoDelete.getRenterId()); 
+		typedQuery.setMaxResults(1);
+		Renter result = typedQuery.getSingleResult();
+		System.out.println("TEST - result: " + result);
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	public Renter searchForRenterById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		Renter foundItem =  em.find(Renter.class, idToEdit);
+		em.close();
+		return foundItem; 
 	}
 	
 }

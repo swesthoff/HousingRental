@@ -7,42 +7,58 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>All Entries</title>
+<title>All Renters</title>title>
+<style>
+table, td, th {
+	border: 1px solid black;
+	border-collapse: separate;
+	border-spacing: 2px;
+	padding: 2px;
+}
+</style>
 </head>
 <body>
-	<c:forEach items="${all}" var="item">
+	<mvc:form modelAttribute="renter" action="renterUpdate.mvc">
 		<table>
 			<tr>
-				<td>First Name</td>U
-				<td>${item.firstName}</td>
+				<th>Renter Id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Age</th>
+				<th>Employer</th>
+				<th>Income</th>
+				<th>Phone Number</th>
+
 			</tr>
-			<tr>
-				<td>Last Name</td>
-				<td>${item.lastName}</td>
-			</tr>
-			<tr>
-				<td>Age</td>
-				<td>${item.age}</td>
-			</tr>
-			<tr>
-				<td>Employer</td>
-				<td>${item.employer}</td>
-			</tr>
-			<tr>
-				<td>Income</td>
-				<td>${item.income}</td>
-			</tr>
-			<tr>
-				<td>Phone Number</td>
-				<td>${item.phoneNmbr}</td>
-			</tr>
-			
+			<c:forEach items="${all}" var="item">
+
+
+				<tr>
+					<td><input type="radio" name="renterId"
+						value="${item.renterId}"></td>
+					<td>${item.firstName}</td>
+
+					<td>${item.lastName}</td>
+
+					<td>${item.age}</td>
+
+					<td>${item.employer}</td>
+
+					<td>${item.income}</td>
+
+					<td>${item.phoneNmbr}</td>
+				</tr>
+
+
+			</c:forEach>
 		</table>
-		<br />
-		<hr style="text-align: left; margin-left: 0; width: 25%">
-		<br />
-	</c:forEach>
+
+		<input type="submit" value="Edit Selected Renter" name="doThisToRenter">
+		<input type="submit" value="Delete Selected Renter" name="doThisToRenter">
+	</mvc:form>
 	<a href="renterform.mvc">Add a new renter</a>
-	<a href = "menu.mvc">Back to main menu</a>
+	<br />
+	<a href="menu.mvc">Back to main menu</a>
+	<br />
 </body>
 </html>
