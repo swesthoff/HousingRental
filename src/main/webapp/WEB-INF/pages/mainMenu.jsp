@@ -9,5 +9,6 @@
 <body>
 <a href = "form.mvc">Add Housing Unit</a>
 <a href = "renterform.mvc">Add Housing Renter</a>
+<a href = "viewAllUnits.mvc">View all Units</a>
 
 </html>

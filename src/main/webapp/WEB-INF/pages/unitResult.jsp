@@ -52,6 +52,7 @@
         </tr>
         
         </table>
-<a href = "viewAll.mvc">View all Entries</a>
+<a href = "viewAllUnits.mvc">View all Units</a>
+<a href = "menu.mvc">Back to main menu</a>
 </body>
 </html>

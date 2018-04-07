@@ -1,10 +1,13 @@
 package edu.dmacc.spring.housingrental;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller
 public class HousingController {
@@ -57,6 +60,15 @@ public class HousingController {
 		dao.insertUnit(unit); 
 		modelAndView.setViewName("unitResult"); 
 		modelAndView.addObject("u", unit); 
+		return modelAndView;
+}
+	
+	@RequestMapping(value = "/viewAllUnits")
+	public ModelAndView viewAllUnits() {
+		ModelAndView modelAndView = new ModelAndView();
+		List<Unit> allUnits = dao.getAllUnits();
+		modelAndView.setViewName("viewAllUnits");
+		modelAndView.addObject("all",allUnits);
 		return modelAndView;
 }
 	
