@@ -45,11 +45,8 @@ public class HousingController {
 	@RequestMapping(value = "/renterform")
 	public ModelAndView renter1() {
 		ModelAndView modelAndView = new ModelAndView();
-
 		modelAndView.setViewName("renterform1");
-
 		modelAndView.addObject("renter", new Renter());
-
 		return modelAndView;
 	}
 
@@ -77,6 +74,15 @@ public class HousingController {
 		modelAndView.addObject("u", renter);
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/renterEditResult")
+	public ModelAndView processEditRenter(Renter renter) {
+		ModelAndView modelAndView = new ModelAndView();
+		dao2.editRenter(renter);
+		modelAndView.setViewName("renterResult");
+		modelAndView.addObject("u", renter);
+		return modelAndView;
+	}
 
 	@RequestMapping(value = "/viewAllUnits")
 	public ModelAndView viewAllUnits() {
@@ -88,63 +94,45 @@ public class HousingController {
 	}
 
 	@RequestMapping(value = "/viewAllRenters")
-	public ModelAndView viewAllRenters() {
+	public ModelAndView viewAllRenters() { 
 		ModelAndView modelAndView = new ModelAndView();
 		List<Renter> allRenters = dao2.getAllRenters();
 		modelAndView.setViewName("viewAllRenters");
 		modelAndView.addObject("all", allRenters);
 		return modelAndView;
 	}
-
+	
 	@RequestMapping(value = "/renterUpdate")
-	public void renterUpdate(HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView renterUpdate(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException { 
 		String act = request.getParameter("doThisToRenter"); 
-		if (act == null) {
-			// future error checking
-			// getServletContext().getRequestDispatcher("/viewAllRenters").forward(request,
-			// response);
-			System.out.println("act is null");
-		} else if (act.equals("Edit Selected Renter")) {
+		ModelAndView modelAndView = new ModelAndView();
+		 if (act.equals("Edit Selected Renter")) {
 			String checkId = request.getParameter("renterId"); 
-			// future error checking
-			// if (checkId == null) {
-			//
-			// getServletContext().getRequestDispatcher("/NoBandSelectedError.jsp").forward(request,
-			// response);
-			//
-			// }
+			
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
 			System.out.println("temp id " + tempId);
 			Renter renterToEdit = dao2.searchForRenterById(tempId);
 			request.setAttribute("renterToEdit", renterToEdit);
-			// getServletContext().getRequestDispatcher("/editBands.jsp").forward(request,
-			// response);
+			
+			modelAndView.setViewName("editRenter");
+			modelAndView.addObject("all", renterToEdit);		 
+			 
 		} else if (act.equals("Delete Selected Renter")) {
 			String checkId = request.getParameter("renterId");
 			System.out.println("id" + checkId);
-			// future error checking
-			// if (checkId == null) {
-			//
-			// getServletContext().getRequestDispatcher("/NoBandSelectedError.jsp").forward(request,
-			// response);
-			//
-			// }
+			
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
 			Renter renterToDelete = dao2.searchForRenterById(tempId);
 
-			dao2.deleteRenter(renterToDelete);
-
-			// AFTER DELETE IS DONE HOW DO I PULL UP VIEW SCREEN AGAIN?
-			//a call to view all renters does not appear to work though it does not make it error
-			//viewAllRenters(); 
-			//This also doesn't work - I think it has to have a return value
-			// ModelAndView modelAndView = new ModelAndView();
-			// List<Renter> allRenters = dao2.getAllRenters();
-			// modelAndView.setViewName("viewAllRenters");
-			// modelAndView.addObject("all", allRenters);
+			dao2.deleteRenter(renterToDelete); 
+			 List<Renter> allRenters = dao2.getAllRenters();
+			 modelAndView.setViewName("viewAllRenters");
+			 modelAndView.addObject("all", allRenters);  
 		}
+		 return modelAndView;
 	}
+
 
 	@Bean
 	public UnitDao dao() {

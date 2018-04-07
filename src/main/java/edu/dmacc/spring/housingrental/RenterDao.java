@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import org.springframework.web.servlet.ModelAndView;
+ 
 
 
 public class RenterDao {
@@ -56,5 +57,15 @@ EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Housing
 		em.close();
 		return foundItem; 
 	}
+
+	public void editRenter(Renter toEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin(); 
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+	 
 	
 }
