@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HousingController {
 	@Autowired UnitDao dao;
+	@Autowired RenterDao dao2;
 	
 	private static final String[] unitTypes = {"Single Family","Duplex","Townhouse","Apartment"};
 	
@@ -40,6 +41,8 @@ public class HousingController {
 		ModelAndView modelAndView = new ModelAndView();
 		
 		modelAndView.setViewName("renterform1");
+
+		modelAndView.addObject("renter",new Renter());
 	
 		return modelAndView;
 }
@@ -63,6 +66,15 @@ public class HousingController {
 		return modelAndView;
 }
 	
+	@RequestMapping(value = "/renterResult")
+	public ModelAndView processRenter(Renter renter) { 
+		ModelAndView modelAndView = new ModelAndView();
+		dao2.insertRenter(renter); 
+		modelAndView.setViewName("renterResult"); 
+		modelAndView.addObject("u", renter); 
+		return modelAndView;
+}
+	
 	@RequestMapping(value = "/viewAllUnits")
 	public ModelAndView viewAllUnits() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -71,11 +83,25 @@ public class HousingController {
 		modelAndView.addObject("all",allUnits);
 		return modelAndView;
 }
+	@RequestMapping(value = "/viewAllRenters")
+	public ModelAndView viewAllRenters() {
+		ModelAndView modelAndView = new ModelAndView();
+		List<Renter> allRenters = dao2.getAllRenters();
+		modelAndView.setViewName("viewAllRenters");
+		modelAndView.addObject("all",allRenters);
+		return modelAndView;
+}
 	
 	@Bean
 		public UnitDao dao() {
 			UnitDao bean = new UnitDao();
 			return bean;
 	}
+	
+	@Bean
+	public RenterDao dao2() {
+		RenterDao bean = new RenterDao();
+		return bean;
+}
 	
 }

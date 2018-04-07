@@ -8,7 +8,7 @@
 </head>
 <body>
 <a href = "form.mvc">Add Housing Unit</a>
-<a href = "renterform.mvc">Add Housing Renter</a>
+<a href = "renterform.mvc">Add Renter</a>
 <a href = "viewAllUnits.mvc">View all Units</a>
-
+<a href = "viewAllRenters.mvc">View all Renters</a>
 </html>
