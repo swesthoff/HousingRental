@@ -18,8 +18,9 @@ table, td, th {
 </style>
 </head>
 <body>
-<table>
-<tr>
+	<mvc:form modelAttribute="unit" action="unitUpdate.mvc">
+	<table>
+		<tr>
 			<th>Unit Id</th>
 			<th>Unit Type</th>
 			<th>Cost</th>
@@ -27,44 +28,53 @@ table, td, th {
 			<th>Number of Bedrooms</th>
 			<th>Number of Bathrooms</th>
 			<th>Square Footage</th>
-			<th>Address</th> 
-			<th>City</th> 
-			<th>State</th> 
-			<th>Zip</th> 
-			
-			
+			<th>Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Zip</th>
+
+
 		</tr>
-	<c:forEach items="${all}" var="item">
-		
-			<tr> 
-			<td><input type="radio" name="unitId" value="${item.unitId}"></td>
+		<c:forEach items="${all}" var="item">
+
+			<tr>
+				<td><input type="radio" name="unitId" value="${item.unitId}"></td>
 				<td>${item.unitType}</td>
-			 
+
 				<td>${item.cost}</td>
-			 
+
 				<td>${item.depositAmount}</td>
-			 
-				 
+
 				<td>${item.nmbrBedrooms}</td>
-			 
+
 				<td>${item.nmbrBathrooms}</td>
-			 
+
 				<td>${item.squareFootage}</td>
-			 
+
 				<td>${item.address}</td>
-		 
-			 
+
 				<td>${item.city}</td>
-			 
+
 				<td>${item.state}</td>
-			 
+
 				<td>${item.zip}</td>
 			</tr>
-		
-		 
-	</c:forEach>
+
+
+		</c:forEach>
 	</table>
-	<a href="form.mvc">Add a new unit</a><br />
-	<a href = "menu.mvc">Back to main menu</a><br />
+
+	<input type="submit" value="Edit Selected Housing Unit"
+		name="doThisToUnit">
+	<br />
+	<input type="submit" value="Delete Selected Housing Unit"
+		name="doThisToUnit">
+	<br />
+	
+	</mvc:form>
+	<a href="form.mvc">Add a new unit</a>
+	<br />
+	<a href="menu.mvc">Back to main menu</a>
+	<br />
 </body>
 </html>

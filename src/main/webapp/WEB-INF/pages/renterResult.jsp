@@ -37,6 +37,7 @@
          
         
         </table>
+        
 <a href = "viewAllRenters.mvc">View all Renters</a>
 <a href = "menu.mvc">Back to main menu</a>
 </body>

@@ -28,5 +28,41 @@ public class UnitDao {
 		em.getTransaction().commit();
 		em.close();
 	}
+
+	public void deleteUnit(Unit unittoDelete) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		TypedQuery<Unit> typedQuery = em.createQuery(
+				"select li from Unit li where li.unitId = :selectedId",
+				Unit.class);
+		typedQuery.setParameter("selectedId", unittoDelete.getUnitId()); 
+		typedQuery.setMaxResults(1);
+		Unit result = typedQuery.getSingleResult();
+		System.out.println("TEST - result: " + result);
+		em.remove(result);
+		em.getTransaction().commit();
+		em.close();
+	}
+
+	public Unit searchForUnitById(int idToEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		Unit foundItem =  em.find(Unit.class, idToEdit);
+		em.close();
+		return foundItem; 
+	}
+
+	public void editUnit(Unit toEdit) {
+		// TODO Auto-generated method stub
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin(); 
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+	 
 	
 }

@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>All Renters</title>title>
+<title>All Renters</title>
 <style>
 table, td, th {
 	border: 1px solid black;

@@ -84,6 +84,15 @@ public class HousingController {
 		return modelAndView;
 	}
 
+	@RequestMapping(value = "/editResult")
+	public ModelAndView processEditUnit(Unit unit) {
+		ModelAndView modelAndView = new ModelAndView();
+		dao.editUnit(unit);
+		modelAndView.setViewName("unitResult");
+		modelAndView.addObject("u", unit);
+		return modelAndView;
+	}
+	
 	@RequestMapping(value = "/viewAllUnits")
 	public ModelAndView viewAllUnits() {
 		ModelAndView modelAndView = new ModelAndView();
@@ -133,7 +142,41 @@ public class HousingController {
 		 return modelAndView;
 	}
 
+	@RequestMapping(value = "/unitUpdate")
+	public ModelAndView unitUpdate(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException { 
+		String act = request.getParameter("doThisToUnit"); 
+		ModelAndView modelAndView = new ModelAndView();
+		 if (act.equals("Edit Selected Housing Unit")) {
+			String checkId = request.getParameter("unitId"); 
+			
+			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
+			System.out.println("temp id " + tempId);
+			Unit unitToEdit = dao.searchForUnitById(tempId);
+			request.setAttribute("unitToEdit", unitToEdit);
+			
+			modelAndView.setViewName("editUnit");
+			modelAndView.addObject("all", unitToEdit);		 
+			 
+		} else if (act.equals("Delete Selected Housing Unit")) {
+			String checkId = request.getParameter("unitId");
+			System.out.println("id" + checkId);
+			
+			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
+			Unit unitToDelete = dao.searchForUnitById(tempId);
 
+			dao.deleteUnit(unitToDelete); 
+			 List<Unit> allUnits = dao.getAllUnits();
+			 modelAndView.setViewName("viewAllUnits");
+			 modelAndView.addObject("all", allUnits);  
+		}
+		 return modelAndView;
+	}
+
+
+	
+	
+	
 	@Bean
 	public UnitDao dao() {
 		UnitDao bean = new UnitDao();
