@@ -12,6 +12,7 @@
 	<h2>Edit Housing Unit</h2>
 	<mvc:form modelAttribute="unit" action="editResult.mvc">
  
+ 
 		Unit Type: <input 
 			type="text" name="unitType"
 			value="${unitToEdit.unitType }"> <br />
