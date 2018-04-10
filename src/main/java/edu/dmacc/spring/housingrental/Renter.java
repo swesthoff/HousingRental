@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="renters")
@@ -18,6 +21,11 @@ public class Renter {
 	private String employer;
 	private double income;
 	private String phoneNmbr;
+//	@ManyToOne
+//	@JoinColumn(name = "unitId")
+//	private Unit unitId;
+	private int unitId;
+	
 	public int getRenterId() {
 		return renterId;
 	}
@@ -60,7 +68,16 @@ public class Renter {
 	public void setPhoneNmbr(String phoneNmbr) {
 		this.phoneNmbr = phoneNmbr;
 	}
+//	public Unit getUnitId() {
+//		return unitId;
+//	}
+//	public void setUnitId(Unit unitId) {
+//		this.unitId = unitId;
+	public int getUnitId() {
+		return unitId;
+	}
+	public void setUnitId(int unitId) {
+		this.unitId = unitId;
+	}
 	
-	
- 
 }

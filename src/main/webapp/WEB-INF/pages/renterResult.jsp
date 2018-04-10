@@ -38,7 +38,7 @@
         
         </table>
         
-<a href = "viewAllRenters.mvc">View all Renters</a>
-<a href = "menu.mvc">Back to main menu</a>
+<a href = "viewAllRenters.mvc">View all Renters</a><br />
+<a href = "menu.mvc">Back to main menu</a><br />
 </body>
 </html>

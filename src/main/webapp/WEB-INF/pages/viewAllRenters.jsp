@@ -28,6 +28,7 @@ table, td, th {
 				<th>Employer</th>
 				<th>Income</th>
 				<th>Phone Number</th>
+				<th>Unit ID</th>
 
 			</tr>
 			<c:forEach items="${all}" var="item">
@@ -47,6 +48,8 @@ table, td, th {
 					<td>${item.income}</td>
 
 					<td>${item.phoneNmbr}</td>
+					
+					<td>${item.unitId}</td>
 				</tr>
 
 

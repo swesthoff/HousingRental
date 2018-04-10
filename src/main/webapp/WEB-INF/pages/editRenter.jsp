@@ -27,16 +27,18 @@
 		 Income: <input 
 			type="text" name="income"
 			value="${renterToEdit.income }">
-			
 		Phone Number: <input 
 			type="text" name="phoneNmbr"
 			value="${renterToEdit.phoneNmbr }">
+		Unit ID: <input 
+			type="text" name="unitId"
+			value="${renterToEdit.unitId }">
 			
 		<input type="hidden"
 			name="renterId" value="${renterToEdit.renterId }">
 		 <input type="submit" value="Save Edited renter">
 	</mvc:form>
-	<a href="viewAllRenters.mvc">View all Renters</a>
-	<a href="menu.mvc">Back to main menu</a>
+	<a href="viewAllRenters.mvc">View all Renters</a><br />
+	<a href="menu.mvc">Back to main menu</a><br />
 </body>
 </html>

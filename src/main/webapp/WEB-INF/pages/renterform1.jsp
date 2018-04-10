@@ -37,14 +37,17 @@
 				<td><mvc:label path="phoneNmbr">Phone Number</mvc:label></td>
 				<td><mvc:input path="phoneNmbr" /></td>
 			</tr>
-
+			<tr>
+				<td><mvc:label path="unitId">Unit ID</mvc:label></td>
+				<td><mvc:input path="unitId" /></td>
+			</tr>
 
 			<tr>
 				<td colspan="2"><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
 	</mvc:form>
-	<a href="viewAllRenters.mvc">View all Renters</a>
-	<a href="menu.mvc">Back to main menu</a>
+	<a href="viewAllRenters.mvc">View all Renters</a><br />
+	<a href="menu.mvc">Back to main menu</a><br />
 </body>
 </html>
