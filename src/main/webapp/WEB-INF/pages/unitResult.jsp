@@ -31,7 +31,7 @@
             <td>${u.nmbrBathrooms}</td>
         </tr>
           <tr>
-            <td>Number of Square Foot<td>
+            <td>Number of Square Footage<td>
             <td>${u.squareFootage}</td>
         </tr>
            <tr>
@@ -52,7 +52,8 @@
         </tr>
         
         </table>
-<a href = "viewAllUnits.mvc">View all Units</a>
-<a href = "menu.mvc">Back to main menu</a>
+        </br>
+<a href = "viewAllUnits.mvc">View all Units</a></br>
+<a href = "menu.mvc">Back to main menu</a></br>
 </body>
 </html>

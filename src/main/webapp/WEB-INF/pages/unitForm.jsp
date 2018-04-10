@@ -61,7 +61,8 @@
 	    </tr>
 	</table>  
 </mvc:form>
-<a href = "viewAllUnits.mvc">View all Units</a>
+<br />
+<a href = "viewAllUnits.mvc">View all Units</a> <br />
 <a href = "menu.mvc">Back to main menu</a>
 </body>
 </html>
