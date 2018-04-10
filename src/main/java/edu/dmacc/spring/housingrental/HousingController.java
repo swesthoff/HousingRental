@@ -154,7 +154,6 @@ public class HousingController {
 			System.out.println("temp id " + tempId);
 			Unit unitToEdit = dao.searchForUnitById(tempId);
 			request.setAttribute("unitToEdit", unitToEdit);
-			
 			modelAndView.setViewName("editUnit");
 			modelAndView.addObject("all", unitToEdit);		 
 			 
