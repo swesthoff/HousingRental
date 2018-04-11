@@ -120,8 +120,7 @@ public class HousingController {
 			String checkId = request.getParameter("renterId"); 
 			if (checkId == null) {
 				
-				modelAndView.setViewName("renterNotChosen");
-				//modelAndView.addObject("all", unitToEdit);
+				modelAndView.setViewName("renterNotChosen"); 
 				return modelAndView;
 
 			} 
@@ -138,8 +137,7 @@ public class HousingController {
 			String checkId = request.getParameter("renterId");
 			if (checkId == null) {
 				
-				modelAndView.setViewName("renterNotChosen");
-				//modelAndView.addObject("all", unitToEdit);
+				modelAndView.setViewName("renterNotChosen"); 
 				return modelAndView;
 
 			} 
