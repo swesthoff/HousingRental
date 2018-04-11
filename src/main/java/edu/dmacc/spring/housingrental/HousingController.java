@@ -118,6 +118,12 @@ public class HousingController {
 		ModelAndView modelAndView = new ModelAndView();
 		 if (act.equals("Edit Selected Renter")) {
 			String checkId = request.getParameter("renterId"); 
+			if (checkId == null) {
+				
+				modelAndView.setViewName("renterNotChosen"); 
+				return modelAndView;
+
+			} 
 			
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
 			System.out.println("temp id " + tempId);
@@ -129,6 +135,12 @@ public class HousingController {
 			 
 		} else if (act.equals("Delete Selected Renter")) {
 			String checkId = request.getParameter("renterId");
+			if (checkId == null) {
+				
+				modelAndView.setViewName("renterNotChosen"); 
+				return modelAndView;
+
+			} 
 			System.out.println("id" + checkId);
 			
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
