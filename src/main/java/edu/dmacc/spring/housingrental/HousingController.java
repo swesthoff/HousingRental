@@ -76,8 +76,20 @@ public class HousingController {
 	}
 	
 	@RequestMapping(value = "/renterEditResult")
-	public ModelAndView processEditRenter(Renter renter) {
+	
+		public ModelAndView processEditRenter(Renter renter) {
 		ModelAndView modelAndView = new ModelAndView();
+	//thsi doesn't work because I don't have a request.
+//		try { 
+//			Integer.parseInt(request.getParameter("age")); 
+//	    } catch(NumberFormatException e) { 
+//	    	modelAndView.setViewName("renterAgeNumericError"); 
+//			return modelAndView;
+//	    } catch(NullPointerException e) {
+//	    	modelAndView.setViewName("renterAgeNumericError"); 
+//			return modelAndView;
+//	    } 
+		
 		dao2.editRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);
@@ -118,15 +130,16 @@ public class HousingController {
 		ModelAndView modelAndView = new ModelAndView();
 		 if (act.equals("Edit Selected Renter")) {
 			String checkId = request.getParameter("renterId"); 
+			System.out.println("checkid " + checkId);
 			if (checkId == null) {
-				
+				System.out.println("check id is null");
 				modelAndView.setViewName("renterNotChosen"); 
 				return modelAndView;
-
 			} 
 			
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
 			System.out.println("temp id " + tempId);
+		
 			Renter renterToEdit = dao2.searchForRenterById(tempId);
 			request.setAttribute("renterToEdit", renterToEdit);
 			
@@ -135,8 +148,9 @@ public class HousingController {
 			 
 		} else if (act.equals("Delete Selected Renter")) {
 			String checkId = request.getParameter("renterId");
+			System.out.println("check id in delete" + checkId);
 			if (checkId == null) {
-				
+				System.out.println("delete check  id null");
 				modelAndView.setViewName("renterNotChosen"); 
 				return modelAndView;
 
@@ -160,8 +174,13 @@ public class HousingController {
 		String act = request.getParameter("doThisToUnit"); 
 		ModelAndView modelAndView = new ModelAndView();
 		 if (act.equals("Edit Selected Housing Unit")) {
-			String checkId = request.getParameter("unitId"); 
-			
+			String checkId = request.getParameter("unitId");  
+			System.out.println("checkid " + checkId);
+			if (checkId == null) {
+				System.out.println("check id is null");
+				modelAndView.setViewName("unitNotChosen"); 
+				return modelAndView;
+			} 
 			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
 			System.out.println("temp id " + tempId);
 			Unit unitToEdit = dao.searchForUnitById(tempId);
@@ -172,6 +191,11 @@ public class HousingController {
 		} else if (act.equals("Delete Selected Housing Unit")) {
 			String checkId = request.getParameter("unitId");
 			System.out.println("id" + checkId);
+			if (checkId == null) {
+				System.out.println("check id is null");
+				modelAndView.setViewName("unitNotChosen"); 
+				return modelAndView;
+			} 
 			
 			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
 			Unit unitToDelete = dao.searchForUnitById(tempId);

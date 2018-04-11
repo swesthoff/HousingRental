@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring MVC From Handling</title>
 </head>  
-<title>Renter Error</title>
+<title>Housing Unit Error</title>
 <style>
 table, td, th {
 	border: 1px solid black;
@@ -21,10 +21,10 @@ h2 {color: red}
 </head>
 <body>
  
-<h2>You forgot to choose a renter</h2>
+<h2>You forgot to choose a housing unit</h2>
 
         
-<a href = "viewAllRenters.mvc">View all Renters</a><br />
+<a href = "viewAllUnits.mvc">View all Units</a><br />
 <a href = "menu.mvc">Back to main menu</a><br />
 
 </body>

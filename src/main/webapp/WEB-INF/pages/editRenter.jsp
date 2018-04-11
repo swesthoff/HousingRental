@@ -12,33 +12,29 @@
 	<h2>Edit Renter</h2>
 	<mvc:form modelAttribute="renter" action="renterEditResult.mvc">
  
-		First Name: <input 
-			type="text" name="firstName"
+		First Name: <input type="text" name="firstName"
 			value="${renterToEdit.firstName }"> 
-		 Last Name: <input 
-			type="text" name="lastName"
+		 Last Name: <input type="text" name="lastName"
 			value="${renterToEdit.lastName }">
-		Age: <input 
-			type="text" name="age"
-			value="${renterToEdit.age }">
-		 Employer: <input 
-			type="text" name="employer"
+		Age: <input type="text" name="age" value="${renterToEdit.age }">
+		 Employer: <input type="text" name="employer"
 			value="${renterToEdit.employer }">
-		 Income: <input 
-			type="text" name="income"
+		 Income: <input type="text" name="income"
 			value="${renterToEdit.income }">
-		Phone Number: <input 
-			type="text" name="phoneNmbr"
+		Phone Number: <input type="text" name="phoneNmbr"
 			value="${renterToEdit.phoneNmbr }">
+
 		Unit ID: <input 
 			type="text" name="unitId"
 			value="${renterToEdit.unitId }">
-			
-		<input type="hidden"
-			name="renterId" value="${renterToEdit.renterId }">
-		 <input type="submit" value="Save Edited renter">
+
+
+		<input type="hidden" name="renterId" value="${renterToEdit.renterId }">
+		<input type="submit" value="Save Edited renter">
 	</mvc:form>
-	<a href="viewAllRenters.mvc">View all Renters</a><br />
-	<a href="menu.mvc">Back to main menu</a><br />
+	<a href="viewAllRenters.mvc">View all Renters</a>
+	<br />
+	<a href="menu.mvc">Back to main menu</a>
+	<br />
 </body>
 </html>

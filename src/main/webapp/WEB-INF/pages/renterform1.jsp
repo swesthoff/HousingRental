@@ -7,15 +7,43 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring MVC Form Handling</title>
+<script type="text/javascript">
+ 
+function validateForm() {
+	// Confirm that they've entered a name before posting the form.
+    var name = document.forms["renter"]["firstName"].value;
+    if (name == "") {
+    	document.getElementById("firstNameError").innerHTML = "*(First name is required.)";
+        return false;
+    }
+    
+    // Next, confirm that our numeric values are numbers.
+    var age = document.forms["renter"]["age"].value;
+    var unitId = document.forms["renter"]["unitId"].value; 
+      
+        if (isNaN(age)) {
+        	document.getElementById("ageError").innerHTML = "*(Age must be a number.)";
+            return false;
+        }	
+    
+     
+        if (isNaN(unitId)) {
+        	document.getElementById("unitIdError").innerHTML = "*(Unit Id must be a number.)";
+            return false;
+        }	
+}
+</script>
 </head>
 <body>
 	<h2>Renter Information Form</h2>
-	<mvc:form modelAttribute="renter" action="renterResult.mvc">
+		<span id="successMessage" class="success">${requestScope.creationSuccess}</span>
+	<mvc:form id = "renter" modelAttribute="renter" action="renterResult.mvc" onsubmit="return validateForm()">
 		<table>
 
 			<tr>
 	        <td><mvc:label path="firstName">First Name</mvc:label></td>
-	        <td><mvc:input path="firstName" /></td>
+	         
+	        <td><mvc:input path="firstName" /></td><span id="firstNameError" class="error">*</span>
 	    </tr>
 			<tr>
 				<td><mvc:label path="lastName">Last Name</mvc:label></td>
@@ -23,7 +51,7 @@
 			</tr>
 			<tr>
 				<td><mvc:label path="age">Age</mvc:label></td>
-				<td><mvc:input path="age" /></td>
+				<td><mvc:input path="age" /></td><span id="ageError" class="error"></span> 
 			</tr>
 			<tr>
 				<td><mvc:label path="employer">Employer</mvc:label></td>
@@ -39,7 +67,7 @@
 			</tr>
 			<tr>
 				<td><mvc:label path="unitId">Unit ID</mvc:label></td>
-				<td><mvc:input path="unitId" /></td>
+				<td><mvc:input path="unitId" /></td><span id="unitIdError" class="error"></span> 
 			</tr>
 
 			<tr>
