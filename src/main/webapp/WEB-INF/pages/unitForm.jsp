@@ -6,11 +6,49 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spring MVC Form Handling</title>
+<title>Housing Unit Entry</title>
 </head>
+<script type="text/javascript">
+ 
+function validateForm() { 
+   
+    
+    //confirm that our numeric values are numbers.
+    var cost = document.forms["unit"]["cost"].value;
+    var  depositAmount= document.forms["unit"]["depositAmount"].value; 
+    var  nmbrBedrooms= document.forms["unit"]["nmbrBedrooms"].value; 
+    var  nmbrBathrooms= document.forms["unit"]["nmbrBathrooms"].value; 
+    var  squareFootage= document.forms["unit"]["squareFootage"].value; 
+      
+        if (isNaN(depositAmount)) {
+        	document.getElementById("depositAmountError").innerHTML = "*(Deposit Amount must be a number.)";
+            return false;
+        }	
+        if (isNaN(cost)) {
+        	document.getElementById("costError").innerHTML = "*(Cost must be a number.)";
+            return false;
+        }
+     
+        if (isNaN(nmbrBedrooms)) {
+        	document.getElementById("nmbrBedroomsError").innerHTML = "*(Number of bedrooms must be a number.)";
+            return false;
+ 
+            if (isNaN(nmbrBathrooms)) {
+            	document.getElementById("nmbrBathroomsError").innerHTML = "*(Number of bathrooms must be a number.)";
+                return false;
+            }
+            
+            if (isNaN(squareFootage)) {
+            	document.getElementById("squareFootageError").innerHTML = "*(Square footage of bedrooms must be a number.)";
+                return false;
+            }	
+            }	
+}
+</script>
 <body>
 <h2>Unit Information Form</h2>
-<mvc:form modelAttribute="unit" action="result.mvc">
+<span id="successMessage" class="success">${requestScope.creationSuccess}</span>
+<mvc:form id = "unit" modelAttribute="unit" action="result.mvc" onsubmit="return validateForm()">
 	<table>
 	
 	  <tr>
@@ -19,23 +57,23 @@
         </tr>
 	    <tr>
 	        <td><mvc:label path="cost">Cost</mvc:label></td>
-	        <td><mvc:input path="cost" /></td>
+	        <td><mvc:input path="cost" /></td><span id="costError" class="error">*</span>
 	    </tr>
 	    <tr>
 	        <td><mvc:label path="depositAmount">Deposit Amount</mvc:label></td>
-	        <td><mvc:input path="depositAmount" /></td>
+	        <td><mvc:input path="depositAmount" /></td><span id="depositAmountError" class="error">*</span>
 	    </tr>
 	    <tr>
 	        <td><mvc:label path="nmbrBedrooms">Number of Bedrooms</mvc:label></td>
-	        <td><mvc:input path="nmbrBedrooms" /></td>
+	        <td><mvc:input path="nmbrBedrooms" /></td><span id="nmbrBedroomsError" class="error">*</span>
 	    </tr>
    	    <tr>
 	        <td><mvc:label path="nmbrBathrooms">Number of Bathrooms</mvc:label></td>
-	        <td><mvc:input path="nmbrBathrooms" /></td>
+	        <td><mvc:input path="nmbrBathrooms" /></td><span id="nmbrBathroomsError" class="error">*</span>
 	    </tr>
 		<tr>
             <td><mvc:label path="squareFootage">Square Footage</mvc:label></td>
-            <td><mvc:input path="squareFootage" /></td>
+            <td><mvc:input path="squareFootage" /></td><span id="squareFootageError" class="error">*</span>
         </tr>
        	<tr>
             <td><mvc:label path="address">address</mvc:label></td>
