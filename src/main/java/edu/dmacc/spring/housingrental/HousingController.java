@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,7 +71,9 @@ public class HousingController {
 
 	@RequestMapping(value = "/renterResult")
 	public ModelAndView processRenter(Renter renter) {
+		System.out.println("in renter result");
 		ModelAndView modelAndView = new ModelAndView();
+		
 		dao2.insertRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);

@@ -76,7 +76,8 @@ span {color: red}
 		<input type="hidden" name="renterId" value="${renterToEdit.renterId }">
 		<input type="submit" value="Save Edited renter">
 	</mvc:form>
-	<a href="viewAllRenters.mvc">View all Renters</a>
+	<br />
+	<a href = "viewAllRenters.mvc">View all Renters</a>
 	<br />
 	<a href="menu.mvc">Back to main menu</a>
 	<br />
