@@ -38,6 +38,10 @@
 	}
 </script>
 </head>
+<style>
+
+span {color: red}
+</style>
 <body>
 	<h2>Edit Renter</h2>
 	<span id="successMessage" class="success">${requestScope.creationSuccess}</span>

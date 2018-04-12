@@ -45,6 +45,7 @@ public class HousingController {
 	@RequestMapping(value = "/renterform")
 	public ModelAndView renter1() {
 		ModelAndView modelAndView = new ModelAndView();
+	//	List<Unit> allUnits = dao.getAllUnits();
 		modelAndView.setViewName("renterform1");
 		modelAndView.addObject("renter", new Renter());
 		return modelAndView;
@@ -186,6 +187,10 @@ public class HousingController {
 			Unit unitToEdit = dao.searchForUnitById(tempId);
 			request.setAttribute("unitToEdit", unitToEdit);
 			modelAndView.setViewName("editUnit");
+	
+			modelAndView.addObject("unitTypes", unitTypes);
+			modelAndView.addObject("states", states);
+			System.out.println("update unit states" + states);
 			modelAndView.addObject("all", unitToEdit);		 
 			 
 		} else if (act.equals("Delete Selected Housing Unit")) {

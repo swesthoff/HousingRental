@@ -85,7 +85,7 @@ function validateForm() {
         </tr>
        	<tr>
             <td><mvc:label path="state">State</mvc:label></td>
-              <td><mvc:select path="state" items="${states}" /></td>
+            <td><mvc:select path="state" items="${states}" /></td>
         </tr>
        	<tr>
             <td><mvc:label path="zip">Zip Code</mvc:label></td>
