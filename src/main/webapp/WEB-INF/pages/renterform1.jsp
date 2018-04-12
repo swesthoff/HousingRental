@@ -76,7 +76,7 @@ span {color: red}
 				<td><mvc:label path="unitId">Unit ID</mvc:label></td>
 			<!--	<td><mvc:input path="unitId" /></td><span id="unitIdError" class="error"></span> 
 			-->
-	        <td><mvc:select name="unitId" path="UnitId" items="${allUnits}" itemLabel="unitType"/></td>
+	        <td><mvc:select name="unitId" path="UnitId" items="${allUnits}" itemLabel="unitId"/></td>
 			</tr>
 
 			<tr>
