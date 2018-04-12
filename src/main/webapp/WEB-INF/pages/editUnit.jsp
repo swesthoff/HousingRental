@@ -84,23 +84,27 @@ span {
 		City: <input type="text" name="city" value="${unitToEdit.city }">
 		<br />
 		State: <input type="text" name="state" value="${unitToEdit.state }">
-		
+		<br /><br />
 		<label>State2:</label>
 		<select name="state">			
-			<c:forEach states="${requestScope.states}" var="currentitem">
+			<c:forEach states="${states}" var="currentitem">
 				<option value="${currentitem.state}" ${unitToEdit.state == currentitem.state ? "selected":""}>${unitToEdit.state}</option>
 			</c:forEach>
-		</select>  <br />
+		</select> 
+		
+		 <br />
 		
 		<br />
 		Zip Code: <input type="text" name="zip" value="${unitToEdit.zip }">
 		<br />
-
+<br />
 		<input type="hidden" name="unitId" value="${unitToEdit.unitId }">
+		<br />
 		<input type="submit" value="Save Edited Housing Unit">
 	</mvc:form>
 	<br />
 	<a href="viewAllUnits.mvc">View all Housing Units</a>
+	<br />
 	<a href="menu.mvc">Back to main menu</a>
 </body>
 </html>

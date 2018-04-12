@@ -45,8 +45,9 @@ public class HousingController {
 	@RequestMapping(value = "/renterform")
 	public ModelAndView renter1() {
 		ModelAndView modelAndView = new ModelAndView();
-	//	List<Unit> allUnits = dao.getAllUnits();
+		List<Unit> allUnits = dao.getAllUnits();
 		modelAndView.setViewName("renterform1");
+		modelAndView.addObject("allUnits",allUnits);
 		modelAndView.addObject("renter", new Renter());
 		return modelAndView;
 	}
@@ -183,7 +184,7 @@ public class HousingController {
 				return modelAndView;
 			} 
 			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
-			System.out.println("temp id " + tempId);
+			System.out.println("temp id/ unitId " + tempId);
 			Unit unitToEdit = dao.searchForUnitById(tempId);
 			request.setAttribute("unitToEdit", unitToEdit);
 			modelAndView.setViewName("editUnit");
