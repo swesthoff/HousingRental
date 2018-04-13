@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Controller; 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -70,7 +70,9 @@ public class HousingController {
 
 	@RequestMapping(value = "/renterResult")
 	public ModelAndView processRenter(Renter renter) {
+		System.out.println("in renter result");
 		ModelAndView modelAndView = new ModelAndView();
+		
 		dao2.insertRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);
@@ -80,18 +82,7 @@ public class HousingController {
 	@RequestMapping(value = "/renterEditResult")
 	
 		public ModelAndView processEditRenter(Renter renter) {
-		ModelAndView modelAndView = new ModelAndView();
-	//thsi doesn't work because I don't have a request.
-//		try { 
-//			Integer.parseInt(request.getParameter("age")); 
-//	    } catch(NumberFormatException e) { 
-//	    	modelAndView.setViewName("renterAgeNumericError"); 
-//			return modelAndView;
-//	    } catch(NullPointerException e) {
-//	    	modelAndView.setViewName("renterAgeNumericError"); 
-//			return modelAndView;
-//	    } 
-		
+		ModelAndView modelAndView = new ModelAndView();	
 		dao2.editRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);
@@ -214,9 +205,6 @@ public class HousingController {
 		 return modelAndView;
 	}
 
-
-	
-	
 	
 	@Bean
 	public UnitDao dao() {

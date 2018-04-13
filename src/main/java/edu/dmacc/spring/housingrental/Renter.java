@@ -20,16 +20,34 @@ public class Renter {
 	private int age;
 	private String employer;
 	private double income;
-	private String phoneNmbr;
-//	@ManyToOne
-//	@JoinColumn(name = "unitId")
-//	private Unit unitId;
-	private int unitId;
-	//testing git hub
+	private String phoneNmbr; 
+	private int unitId; 
 	
+	public Renter() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public Renter(int renterId, String firstName, String lastName, int age, String employer, double income,
+			String phoneNmbr, int unitId) {
+		super();
+		this.renterId = renterId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.employer = employer;
+		this.income = income;
+		this.phoneNmbr = phoneNmbr;
+		this.unitId = unitId;
+	}
+
+
+
 	public int getRenterId() {
 		return renterId;
 	}
+	
 	public void setRenterId(int renterId) {
 		this.renterId = renterId;
 	}
@@ -69,11 +87,7 @@ public class Renter {
 	public void setPhoneNmbr(String phoneNmbr) {
 		this.phoneNmbr = phoneNmbr;
 	}
-//	public Unit getUnitId() {
-//		return unitId;
-//	}
-//	public void setUnitId(Unit unitId) {
-//		this.unitId = unitId;
+
 	public int getUnitId() {
 		return unitId;
 	}
