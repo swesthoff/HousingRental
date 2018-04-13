@@ -7,6 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring MVC From Handling</title>
+<style>
+table, td, th {
+	border: 1px solid black;
+	border-collapse: separate; 
+	padding: 2px;
+}
+
+</style>
 </head>
 <body> <h2>Renter Result</h2>
     <table>
@@ -31,7 +39,7 @@
             <td>${u.income}</td>
         </tr>
           <tr>
-            <td>Phone Number<td>
+            <td>Phone Number</td>
             <td>${u.phoneNmbr}</td>
         </tr>
          
