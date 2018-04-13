@@ -21,7 +21,7 @@ table, td, th {
 	<mvc:form modelAttribute="renter" action="renterUpdate.mvc">
 		<table>
 			<tr>
-				<th>Renter Id</th>
+				<th>           </th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Age</th>

@@ -70,7 +70,7 @@ span {color: red}
 		<br />
 						
 						
-		<input type="hidden" name="renterId" value="${renterToEdit.renterId }">
+		<input type="hidden"  value="${renterToEdit.renterId }">
 		<input type="submit" value="Save Edited renter">
 	</mvc:form>
 	
