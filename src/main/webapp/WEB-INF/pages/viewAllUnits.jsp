@@ -85,10 +85,10 @@ h2 {
 	</mvc:form>
 	<br />
 <br />
-	<a href="form.mvc">Add a new unit</a>
+	<a href="form.mvc">Add Housing Unit</a>
 	<br />
 	<br />
-	<a href="menu.mvc">Back to main menu</a>
+	<a href="menu.mvc">Back to Main Menu</a>
 	<br />
 </body>
 </html>
