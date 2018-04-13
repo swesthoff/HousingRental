@@ -13,7 +13,7 @@
 	function validateForm() {
 		var name = document.forms["renter"]["lastName"].value;
 		if (name == "") {
-			document.getElementById("lastNameError").innerHTML = "*(Last name is required.)";
+			document.getElementById("lastNameError").innerHTML = "(Last name is required.)";
 			return false;
 		}
 
@@ -22,11 +22,11 @@
 		var income = document.forms["renter"]["income"].value;
 
 		if (isNaN(age)) {
-			document.getElementById("ageError").innerHTML = "*(Age must be a number.)";
+			document.getElementById("ageError").innerHTML = "Age must be a number.";
 			return false;
 		}
 		if (isNaN(income)) {
-			document.getElementById("incomeError").innerHTML = "*(Income must be a number.)";
+			document.getElementById("incomeError").innerHTML = "Income must be a number.";
 			return false;
 		}
 
@@ -56,7 +56,7 @@ span {
 			<tr>
 				<td><mvc:label path="lastName">Last Name</mvc:label></td>
 				<td><mvc:input path="lastName" /></td>
-				<span id="lastNameError" class="error">*</span>
+				<span id="lastNameError" class="error"></span>
 			</tr>
 			<tr>
 				<td><mvc:label path="age">Age</mvc:label></td>

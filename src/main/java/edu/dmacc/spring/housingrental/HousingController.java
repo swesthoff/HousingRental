@@ -69,10 +69,8 @@ public class HousingController {
 	}
 
 	@RequestMapping(value = "/renterResult")
-	public ModelAndView processRenter(Renter renter) {
-		System.out.println("in renter result");
+	public ModelAndView processRenter(Renter renter) { 
 		ModelAndView modelAndView = new ModelAndView();
-		
 		dao2.insertRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);
@@ -93,8 +91,7 @@ public class HousingController {
 	public ModelAndView processEditUnit(Unit unit) {
 		ModelAndView modelAndView = new ModelAndView();
 		dao.editUnit(unit);
-		modelAndView.setViewName("unitResult");
-		System.out.println("in unit edit Result");
+		modelAndView.setViewName("unitResult"); 
 		modelAndView.addObject("states", states);
 		modelAndView.addObject("u", unit);
 		return modelAndView;
@@ -104,8 +101,7 @@ public class HousingController {
 	public ModelAndView viewAllUnits() {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Unit> allUnits = dao.getAllUnits();
-		modelAndView.setViewName("viewAllUnits");
-		System.out.println("in view all units");
+		modelAndView.setViewName("viewAllUnits"); 
 		modelAndView.addObject("states", states);
 		modelAndView.addObject("all", allUnits);
 		return modelAndView;
@@ -128,14 +124,12 @@ public class HousingController {
 		 if (act.equals("Edit Selected Renter")) {
 			String checkId = request.getParameter("renterId"); 
 			System.out.println("checkid " + checkId);
-			if (checkId == null) {
-				System.out.println("check id is null");
+			if (checkId == null) { 
 				modelAndView.setViewName("renterNotChosen"); 
 				return modelAndView;
 			} 
 			
-			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
-			System.out.println("temp id " + tempId);
+			Integer tempId = Integer.parseInt(request.getParameter("renterId")); 
 		
 			Renter renterToEdit = dao2.searchForRenterById(tempId);
 			request.setAttribute("renterToEdit", renterToEdit);
@@ -144,15 +138,12 @@ public class HousingController {
 			modelAndView.addObject("all", renterToEdit);		 
 			 
 		} else if (act.equals("Delete Selected Renter")) {
-			String checkId = request.getParameter("renterId");
-			System.out.println("check id in delete" + checkId);
-			if (checkId == null) {
-				System.out.println("delete check  id null");
+			String checkId = request.getParameter("renterId"); 
+			if (checkId == null) { 
 				modelAndView.setViewName("renterNotChosen"); 
 				return modelAndView;
 
-			} 
-			System.out.println("id" + checkId);
+			}  
 			
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
 			Renter renterToDelete = dao2.searchForRenterById(tempId);
@@ -171,29 +162,23 @@ public class HousingController {
 		String act = request.getParameter("doThisToUnit"); 
 		ModelAndView modelAndView = new ModelAndView();
 		 if (act.equals("Edit Selected Housing Unit")) {
-			String checkId = request.getParameter("unitId");  
-			System.out.println("checkid " + checkId);
-			if (checkId == null) {
-				System.out.println("check id is null");
+			String checkId = request.getParameter("unitId");   
+			if (checkId == null) { 
 				modelAndView.setViewName("unitNotChosen"); 
 				return modelAndView;
 			} 
-			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
-			System.out.println("temp id/ unitId " + tempId);
+			Integer tempId = Integer.parseInt(request.getParameter("unitId")); 
 			Unit unitToEdit = dao.searchForUnitById(tempId);
 			request.setAttribute("unitToEdit", unitToEdit);
 			modelAndView.setViewName("editUnit");
 	
 			modelAndView.addObject("unitTypes", unitTypes);
-			modelAndView.addObject("states", states);
-			System.out.println("update unit states-1: " + states);
+			modelAndView.addObject("states", states); 
 			modelAndView.addObject("all", unitToEdit);		 
 			 
 		} else if (act.equals("Delete Selected Housing Unit")) {
-			String checkId = request.getParameter("unitId");
-			System.out.println("id" + checkId);
-			if (checkId == null) {
-				System.out.println("check id is null");
+			String checkId = request.getParameter("unitId"); 
+			if (checkId == null) { 
 				modelAndView.setViewName("unitNotChosen"); 
 				return modelAndView;
 			} 

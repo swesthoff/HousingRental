@@ -12,7 +12,7 @@
 		// Confirm that they've entered a name before posting the form.
 		var name = document.forms["renter"]["lastName"].value;
 		if (name == "") {
-			document.getElementById("lastNameError").innerHTML = "*(Last name is required.)";
+			document.getElementById("lastNameError").innerHTML = "Last name is required.";
 			return false;
 		}
 
@@ -23,11 +23,11 @@
 		var unitId = document.forms["renter"]["unitId"].value;
 
 		if (isNaN(age)) {
-			document.getElementById("ageError").innerHTML = "*(Age must be a number.)";
+			document.getElementById("ageError").innerHTML = "Age must be a number.";
 			return false;
 		}
 		if (isNaN(income)) {
-			document.getElementById("incomeError").innerHTML = "*(Income must be a number.)";
+			document.getElementById("incomeError").innerHTML = "Income must be a number.";
 			return false;
 		}
 
@@ -53,7 +53,7 @@ span {color: red}
 		<br />
 		 Last Name: <input type="text" name="lastName"
 			value="${renterToEdit.lastName }">
-		<span id="lastNameError" class="error">*</span>
+		<span id="lastNameError" class="error"></span>
 		<br />
 		Age: <input type="text" name="age" value="${renterToEdit.age }">
 		<span id="ageError" class="error"></span>
@@ -71,9 +71,9 @@ span {color: red}
 		Unit ID: <input type="text" name="unitId"
 			value="${renterToEdit.unitId }"> 
 		<br />
-						
-						
+									
 		<input type="hidden"  value="${renterToEdit.renterId }">
+		<br />	
 		<input type="submit" value="Save Edited renter">
 	</mvc:form>
 	
