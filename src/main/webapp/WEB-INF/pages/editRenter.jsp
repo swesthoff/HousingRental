@@ -47,7 +47,7 @@ span {color: red}
 	<span id="successMessage" class="success">${requestScope.creationSuccess}</span>
 	<mvc:form id="renter" modelAttribute="renter"
 		action="renterEditResult.mvc" onsubmit="return validateForm()">
- 
+ 		
 		First Name: <input type="text" name="firstName"
 			value="${renterToEdit.firstName }">
 		<br />
@@ -72,7 +72,7 @@ span {color: red}
 			value="${renterToEdit.unitId }"> 
 		<br />
 									
-		<input type="hidden"  value="${renterToEdit.renterId }">
+		<input type="hidden"  name = "renterId" value="${renterToEdit.renterId }"> 
 		<br />	
 		<input type="submit" value="Save Edited renter">
 	</mvc:form>
