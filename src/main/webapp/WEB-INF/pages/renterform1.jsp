@@ -29,10 +29,6 @@
 			return false;
 		}
 
-		if (isNaN(unitId)) {
-			document.getElementById("unitIdError").innerHTML = "*(Unit Id must be a number.)";
-			return false;
-		}
 	}
 </script>
 </head>

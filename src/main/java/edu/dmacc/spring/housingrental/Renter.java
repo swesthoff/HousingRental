@@ -20,10 +20,7 @@ public class Renter {
 	private int age;
 	private String employer;
 	private double income;
-	private String phoneNmbr;
-	//@ManyToOne
-	//@JoinColumn(name = "unitId")
-	//private Unit unitId;
+	private String phoneNmbr; 
 	private int unitId; 
 	
 	public Renter() {

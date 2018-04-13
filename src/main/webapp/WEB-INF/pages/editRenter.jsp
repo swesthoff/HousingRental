@@ -31,10 +31,7 @@
 			return false;
 		}
 
-		if (isNaN(unitId)) {
-			document.getElementById("unitIdError").innerHTML = "*(Unit Id must be a number.)";
-			return false;
-		}
+		
 	}
 </script>
 </head>
@@ -69,13 +66,14 @@ span {color: red}
 			value="${renterToEdit.phoneNmbr }">
 		<br />
 		Unit ID: <input type="text" name="unitId"
-			value="${renterToEdit.unitId }">
-		<span id="unitIdError" class="error"></span>
+			value="${renterToEdit.unitId }"> 
 		<br />
-
+						
+						
 		<input type="hidden" name="renterId" value="${renterToEdit.renterId }">
 		<input type="submit" value="Save Edited renter">
 	</mvc:form>
+	
 	<br />
 	<a href = "viewAllRenters.mvc">View all Renters</a>
 	<br />
