@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Controller; 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,7 +47,7 @@ public class HousingController {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Unit> allUnits = dao.getAllUnits();
 		modelAndView.setViewName("renterform1");
-		modelAndView.addObject("allUnits",allUnits);
+		modelAndView.addObject("allUnits", allUnits);
 		modelAndView.addObject("renter", new Renter());
 		return modelAndView;
 	}
@@ -69,18 +69,17 @@ public class HousingController {
 	}
 
 	@RequestMapping(value = "/renterResult")
-	public ModelAndView processRenter(Renter renter) { 
-		ModelAndView modelAndView = new ModelAndView();
+	public ModelAndView processRenter(Renter renter) {
+		ModelAndView modelAndView = new ModelAndView(); 
 		dao2.insertRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);
 		return modelAndView;
 	}
-	
+
 	@RequestMapping(value = "/renterEditResult")
-	
-		public ModelAndView processEditRenter(Renter renter) {
-		ModelAndView modelAndView = new ModelAndView();	
+	public ModelAndView processEditRenter(Renter renter) {
+		ModelAndView modelAndView = new ModelAndView(); 
 		dao2.editRenter(renter);
 		modelAndView.setViewName("renterResult");
 		modelAndView.addObject("u", renter);
@@ -91,110 +90,108 @@ public class HousingController {
 	public ModelAndView processEditUnit(Unit unit) {
 		ModelAndView modelAndView = new ModelAndView();
 		dao.editUnit(unit);
-		modelAndView.setViewName("unitResult"); 
+		modelAndView.setViewName("unitResult");
 		modelAndView.addObject("states", states);
 		modelAndView.addObject("u", unit);
 		return modelAndView;
 	}
-	
+
 	@RequestMapping(value = "/viewAllUnits")
 	public ModelAndView viewAllUnits() {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Unit> allUnits = dao.getAllUnits();
-		modelAndView.setViewName("viewAllUnits"); 
+		modelAndView.setViewName("viewAllUnits");
 		modelAndView.addObject("states", states);
 		modelAndView.addObject("all", allUnits);
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/viewAllRenters")
-	public ModelAndView viewAllRenters() { 
+	public ModelAndView viewAllRenters() {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Renter> allRenters = dao2.getAllRenters();
 		modelAndView.setViewName("viewAllRenters");
 		modelAndView.addObject("all", allRenters);
 		return modelAndView;
 	}
-	
+
 	@RequestMapping(value = "/renterUpdate")
 	public ModelAndView renterUpdate(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException { 
-		String act = request.getParameter("doThisToRenter"); 
+			throws ServletException, IOException {
+		String act = request.getParameter("doThisToRenter");
 		ModelAndView modelAndView = new ModelAndView();
-		 if (act.equals("Edit Selected Renter")) {
-			String checkId = request.getParameter("renterId"); 
-			System.out.println("checkid " + checkId);
-			if (checkId == null) { 
-				modelAndView.setViewName("renterNotChosen"); 
+		if (act.equals("Edit Selected Renter")) {
+			String checkId = request.getParameter("renterId");
+			if (checkId == null) {
+				modelAndView.setViewName("renterNotChosen");
 				return modelAndView;
-			} 
-			
-			Integer tempId = Integer.parseInt(request.getParameter("renterId")); 
-		
+			}
+
+			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
+
 			Renter renterToEdit = dao2.searchForRenterById(tempId);
 			request.setAttribute("renterToEdit", renterToEdit);
-			
+
 			modelAndView.setViewName("editRenter");
-			modelAndView.addObject("all", renterToEdit);		 
-			 
+			modelAndView.addObject("all", renterToEdit);
+
 		} else if (act.equals("Delete Selected Renter")) {
-			String checkId = request.getParameter("renterId"); 
-			if (checkId == null) { 
-				modelAndView.setViewName("renterNotChosen"); 
+			String checkId = request.getParameter("renterId");
+			if (checkId == null) {
+				modelAndView.setViewName("renterNotChosen");
 				return modelAndView;
 
-			}  
-			
+			}
+
 			Integer tempId = Integer.parseInt(request.getParameter("renterId"));
 			Renter renterToDelete = dao2.searchForRenterById(tempId);
 
-			dao2.deleteRenter(renterToDelete); 
-			 List<Renter> allRenters = dao2.getAllRenters();
-			 modelAndView.setViewName("viewAllRenters");
-			 modelAndView.addObject("all", allRenters);  
+			dao2.deleteRenter(renterToDelete);
+			List<Renter> allRenters = dao2.getAllRenters();
+			modelAndView.setViewName("viewAllRenters");
+			modelAndView.addObject("all", allRenters);
 		}
-		 return modelAndView;
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/unitUpdate")
 	public ModelAndView unitUpdate(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException { 
-		String act = request.getParameter("doThisToUnit"); 
+			throws ServletException, IOException {
+		String act = request.getParameter("doThisToUnit");
 		ModelAndView modelAndView = new ModelAndView();
-		 if (act.equals("Edit Selected Housing Unit")) {
-			String checkId = request.getParameter("unitId");   
-			if (checkId == null) { 
-				modelAndView.setViewName("unitNotChosen"); 
+		if (act.equals("Edit Selected Housing Unit")) {
+			String checkId = request.getParameter("unitId");
+			if (checkId == null) {
+				modelAndView.setViewName("unitNotChosen");
 				return modelAndView;
-			} 
-			Integer tempId = Integer.parseInt(request.getParameter("unitId")); 
+			}
+			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
 			Unit unitToEdit = dao.searchForUnitById(tempId);
 			request.setAttribute("unitToEdit", unitToEdit);
 			modelAndView.setViewName("editUnit");
-	
+
 			modelAndView.addObject("unitTypes", unitTypes);
-			modelAndView.addObject("states", states); 
-			modelAndView.addObject("all", unitToEdit);		 
-			 
+			modelAndView.addObject("states", states);
+			modelAndView.addObject("all", unitToEdit);
+
 		} else if (act.equals("Delete Selected Housing Unit")) {
-			String checkId = request.getParameter("unitId"); 
-			if (checkId == null) { 
-				modelAndView.setViewName("unitNotChosen"); 
+			String checkId = request.getParameter("unitId");
+			if (checkId == null) {
+				modelAndView.setViewName("unitNotChosen");
 				return modelAndView;
-			} 
-			
+			}
+
 			Integer tempId = Integer.parseInt(request.getParameter("unitId"));
 			Unit unitToDelete = dao.searchForUnitById(tempId);
 
-			dao.deleteUnit(unitToDelete); 
-			 List<Unit> allUnits = dao.getAllUnits();
-			 modelAndView.setViewName("viewAllUnits");
-			 modelAndView.addObject("all", allUnits);  
+			dao.deleteUnit(unitToDelete);
+			List<Unit> allUnits = dao.getAllUnits();
+			modelAndView.setViewName("viewAllUnits");
+			modelAndView.addObject("all", allUnits);
 		}
-		 return modelAndView;
+		return modelAndView;
 	}
 
-	
 	@Bean
 	public UnitDao dao() {
 		UnitDao bean = new UnitDao();
