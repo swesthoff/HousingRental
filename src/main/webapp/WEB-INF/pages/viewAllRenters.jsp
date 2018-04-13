@@ -59,10 +59,11 @@ table, td, th {
 
 			</c:forEach>
 		</table>
-
+	<br />
 		<input type="submit" value="Edit Selected Renter" name="doThisToRenter">
 		<input type="submit" value="Delete Selected Renter" name="doThisToRenter">
 	</mvc:form>
+	<br />
 	<a href="renterform.mvc">Add a new renter</a>
 	<br />
 	<a href="menu.mvc">Back to main menu</a>
