@@ -8,6 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Spring MVC From Handling</title>
 </head>
+<style>
+table, td, th {
+	border: 1px solid black;
+	border-collapse: separate; 
+	padding: 2px;
+} 
+</style>
 <body> <h2>Unit Result</h2>
     <table>
         <tr>
@@ -31,23 +38,23 @@
             <td>${u.nmbrBathrooms}</td>
         </tr>
           <tr>
-            <td>Number of Square Footage<td>
+            <td>Number of Square Footage</td>
             <td>${u.squareFootage}</td>
         </tr>
            <tr>
-            <td>Address<td>
+            <td>Address</td>
             <td>${u.address}</td>
         </tr>
            <tr>
-            <td>City<td>
+            <td>City</td>
             <td>${u.city}</td>
         </tr>
            <tr>
-            <td>State<td>
+            <td>State</td>
             <td>${u.state}</td>
         </tr>
            <tr>
-            <td>Zip<td>
+            <td>Zip</td>
             <td>${u.zip}</td>
         </tr>
         
