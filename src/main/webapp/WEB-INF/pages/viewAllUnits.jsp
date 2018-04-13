@@ -9,11 +9,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>All Units</title>
 <style>
-table, td, th {
+table {
 	border: 1px solid black;
 	border-collapse: separate;
 	border-spacing: 2px;
 	padding: 2px;
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+
+
 }
 </style>
 </head>
@@ -21,7 +31,7 @@ table, td, th {
 	<mvc:form modelAttribute="unit" action="unitUpdate.mvc">
 	<table>
 		<tr>
-			<th>Unit Id</th>
+			<th> </th>
 			<th>Unit Type</th>
 			<th>Cost</th>
 			<th>Deposit Amount</th>
@@ -67,10 +77,10 @@ table, td, th {
 	<input type="submit" value="Edit Selected Housing Unit"
 		name="doThisToUnit">
 	<br />
-	<input type="submit" value="Delete Selected Housing Unit"
+<!-- <input type="submit" value="Delete Selected Housing Unit"
 		name="doThisToUnit">
 	<br />
-	
+	 -->	
 	</mvc:form>
 	<a href="form.mvc">Add a new unit</a>
 	<br />

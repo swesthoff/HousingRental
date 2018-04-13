@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="mvc"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -47,7 +49,10 @@
 span {
 	color: red
 }
+
+
 </style>
+
 <body>
 	<h2>Edit Housing Unit</h2>
 
@@ -85,13 +90,7 @@ span {
 		<br />
 		State: <input type="text" name="state" value="${unitToEdit.state }">
 		<br /><br />
-		<label>State2:</label>
-		<select name="state">			
-			<c:forEach states="${states}" var="currentitem">
-				<option value="${currentitem.state}" ${unitToEdit.state == currentitem.state ? "selected":""}>${unitToEdit.state}</option>
-			</c:forEach>
-		</select> 
-		
+
 		 <br />
 		
 		<br />

@@ -94,6 +94,8 @@ public class HousingController {
 		ModelAndView modelAndView = new ModelAndView();
 		dao.editUnit(unit);
 		modelAndView.setViewName("unitResult");
+		System.out.println("in unit edit Result");
+		modelAndView.addObject("states", states);
 		modelAndView.addObject("u", unit);
 		return modelAndView;
 	}
@@ -103,6 +105,8 @@ public class HousingController {
 		ModelAndView modelAndView = new ModelAndView();
 		List<Unit> allUnits = dao.getAllUnits();
 		modelAndView.setViewName("viewAllUnits");
+		System.out.println("in view all units");
+		modelAndView.addObject("states", states);
 		modelAndView.addObject("all", allUnits);
 		return modelAndView;
 	}
@@ -182,7 +186,7 @@ public class HousingController {
 	
 			modelAndView.addObject("unitTypes", unitTypes);
 			modelAndView.addObject("states", states);
-			System.out.println("update unit states" + states);
+			System.out.println("update unit states-1: " + states);
 			modelAndView.addObject("all", unitToEdit);		 
 			 
 		} else if (act.equals("Delete Selected Housing Unit")) {
